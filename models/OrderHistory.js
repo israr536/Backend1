@@ -12,15 +12,15 @@ OrderSchema = new mongoose.Schema({
 
     },
     date: {
-      type: Date,
+      type: String,
       default: Date.now,
-      required: true
+      required: true,
     },
     
-      time: {
-        type: String,
-        required: true
-      },
+      // time: {
+      //   type: String,
+      //   required: true,
+      // },
       location: {
         type: String,
         required: true,

@@ -6,12 +6,12 @@ const createOrder = async (req, res) => {
   const options = { timeZone: 'Asia/Kolkata' };
 
   try {
-    const { orderID, status, time, location ,mobilenumber,address,pincode} = req.body;
+    const { orderID, status,  location ,mobilenumber,address,pincode} = req.body;
     const orderData = {
       orderID,
       status,
       date: date.toLocaleString('en-IN', options), // Convert date to Indian Standard Date and Time
-      time,
+    
       location,
       mobilenumber,
       address,
@@ -31,14 +31,13 @@ const createOrder = async (req, res) => {
 // Endpoint to handle fetching order history
 const History = async (req, res) => {
   try {
-    const orderHistory = await OrderModel.find().sort({ date: -1 });
-    console.log(orderHistory);
-
+    const orderHistory = await OrderModel.find();
     res.status(200).json({ orderHistory });
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
 
 const getOrder = async (req, res) => {
   const orderID = req.params.orderID;

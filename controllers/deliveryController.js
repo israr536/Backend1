@@ -2,12 +2,12 @@ const OrderModel = require('../models/OrderHistory');
 
 // Endpoint to handle updating order status
 const Update = async (req, res) => {
-  const { orderID, status, time, location } = req.body;
+  const { orderID, status,  location } = req.body;
   const date = new Date();
   try {
     const order = await OrderModel.findOneAndUpdate(
       { orderID },
-      { $set: { status, date, time, location } },
+      { $set: { status, date,  location } },
       { new: true }
     );
 
