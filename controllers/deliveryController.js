@@ -4,10 +4,11 @@ const OrderModel = require('../models/OrderHistory');
 const Update = async (req, res) => {
   const { orderID, status,  location } = req.body;
   const date = new Date();
+  const options = { timeZone: 'Asia/Kolkata' };
   try {
     const order = await OrderModel.findOneAndUpdate(
       { orderID },
-      { $set: { status, date,  location } },
+      { $set: { status,date: date.toLocaleString('en-IN', options),location } }, //Convert date to Indian Standard Date and Time,  location } },
       { new: true }
     );
 
