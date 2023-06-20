@@ -16,27 +16,28 @@ CustomerSchema = new mongoose.Schema({
     },
     senderState:{
         type:String,
-        required:true
+        required:true,
     },
     senderPostalCode:{
-        type:Number,
-        required:true
+        type:String,
+        required:true,
     },
     senderMobilenumber:{
-        type:Number,
-        //required:true
+        type:String,
+        required:true,
     },
     senderemail:{
-        type:String
-    },
-    senderItemCategory:{
         type:String,
-        // required:true,
+        required:true,
     },
-    senderItemDescription:{
-        type:String,
-        // required:true,
-    },
+    // senderItemCategory:{
+    //     type:String,
+    //      required:true,
+    // },
+    // senderItemDescription:{
+    //     type:String,
+    //     required:true,
+    // },
 
     receiverName:{
         type:String,
@@ -52,26 +53,27 @@ CustomerSchema = new mongoose.Schema({
     },
     receiverState:{
         type:String,
-        required:true
+        required:true,
     },
     receiverPostalCode:{
-        type:Number,
-        required:true
+        type:String,
+        required:true,
     },
     receiverMobilenumber:{
-        type:Number,
-       // required:true
+        type:String,
+        required:true,
     },
     receiveremail:{
-        type:String
-    },
-    receiverItemCategory:{
         type:String,
-        // required:true,
+        required:true,
     },
-    receiverItemDescription:{
+    ItemCategory:{
         type:String,
-        // required:true,
+         required:true,
+    },
+    ItemDescription:{
+        type:String,
+        required:true,
     },
 })
 

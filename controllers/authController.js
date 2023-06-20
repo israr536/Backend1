@@ -102,9 +102,51 @@ class AuthController {
       return res.status(500).json({ message: 'Server Error' });
     }
   };
+  static updateUser = async (req, res) => {
+    try {
+      const { username, email, role, userId } = req.body; // Extract userId from the request body
+  
+      const updatedUser = await UserModel.findByIdAndUpdate(
+        userId,
+        { username, email, role },
+        { new: true }
+      );
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      return res.status(200).json({ status: 200, message: 'User updated successfully', user: updatedUser });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Server Error' });
+    }
+  };
+  static resetPassword = async (req, res) => {
+    try {
+      const { userId, newPassword } = req.body; // Extract userId and newPassword from the request body
+  
+      const hashPassword = await bcrypt.hash(newPassword, 10);
+  
+      const updatedUser = await UserModel.findByIdAndUpdate(
+        userId,
+        { password: hashPassword },
+        { new: true }
+      );
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      return res.status(200).json({ status: 200, message: 'Password reset successfully', user: updatedUser });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Server Error' });
+    }
+  };
+};
   
 
-};
 
 
 module.exports = AuthController;

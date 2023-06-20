@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   service: 'Gmail', // Replace with your email service provider (e.g., Gmail, Outlook)
   auth: {
     user: 'israr@hexabells.com',
-    pass: 'gotrchkxvuunbpmy',
+    pass: 'prcalltvgzolfupj',
   },
 });
 
@@ -18,19 +18,19 @@ const createPost = async (req, res) => {
       senderCity,
       senderState,
       senderPostalCode,
-      senderMobileNumber,
+      senderMobilenumber,
       senderemail,
-      senderItemCategory,
-      senderItemDescription,
+      // senderItemCategory,
+      // senderItemDescription,
       receiverName,
       receiverAddress,
       receiverCity,
       receiverState,
       receiverPostalCode,
-      receiverMobileNumber,
+      receiverMobilenumber,
       receiveremail,
-      receiverItemCategory,
-      receiverItemDescription,
+      ItemCategory,
+      ItemDescription,
     } = req.body;
 
     const customer = new CustomerModel({
@@ -39,19 +39,19 @@ const createPost = async (req, res) => {
       senderCity,
       senderState,
       senderPostalCode,
-      senderMobileNumber,
+      senderMobilenumber,
       senderemail,
-      senderItemCategory,
-      senderItemDescription,
+      // senderItemCategory,
+      // senderItemDescription,
       receiverName,
       receiverAddress,
       receiverCity,
       receiverState,
       receiverPostalCode,
-      receiverMobileNumber,
+      receiverMobilenumber,
       receiveremail,
-      receiverItemCategory,
-      receiverItemDescription,
+      ItemCategory,
+      ItemDescription,
     });
 
     const newCustomer = await customer.save();

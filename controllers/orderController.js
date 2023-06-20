@@ -11,7 +11,6 @@ const createOrder = async (req, res) => {
       orderID,
       status,
       date: date.toLocaleString('en-IN', options), // Convert date to Indian Standard Date and Time
-    
       location,
       mobilenumber,
       address,

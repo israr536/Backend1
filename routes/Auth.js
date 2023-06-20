@@ -7,6 +7,8 @@ router.post('/register', AuthController.userRegistration);
 router.post('/login', AuthController.userLogin);
 router.get('/getusers' , AuthController.getUserList);
 router.delete('/:userId', AuthController.deleteUser);
+router.put('/update', AuthController.updateUser);
+router.put('/reset',AuthController.resetPassword);
 
 // Protected routes
 // router.post('/admin', authenticateToken, AuthController.adminRoute);
