@@ -1,18 +1,27 @@
-const mongoose = require('mongoose')
+const express = require('express');
+const mongoose = require('mongoose');
+const moment = require('moment-timezone');
+
+
+// const options = { timeZone: 'Asia/Kolkata' };
 
 
 CustomerSchema = new mongoose.Schema({
+    OrderID:{
+        type:String,
+        required:true,
+    },
     senderName:{
         type:String,
-        required:true
+        required:true,
     },
     senderAddress:{
         type:String,
-        required:true
+        required:true,
     },
     senderCity:{
         type:String,
-        required:true
+        required:true,
     },
     senderState:{
         type:String,
@@ -30,26 +39,18 @@ CustomerSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    // senderItemCategory:{
-    //     type:String,
-    //      required:true,
-    // },
-    // senderItemDescription:{
-    //     type:String,
-    //     required:true,
-    // },
 
     receiverName:{
         type:String,
-        required:true
+        required:true,
     },
     receiverAddress:{
         type:String,
-        required:true
+        required:true,
     },
     receiverCity:{
         type:String,
-        required:true
+        required:true,
     },
     receiverState:{
         type:String,
@@ -67,15 +68,58 @@ CustomerSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    ItemCategory:{
-        type:String,
-         required:true,
-    },
-    ItemDescription:{
+    ItemName:{
         type:String,
         required:true,
     },
-})
+    ItemQuantity:{
+        type:String,
+         required:true,
+    },
+    ItemWeight:{
+        type:String,
+        required:true,
+    },
+    ItemType:{
+type:String,
+required:true,
+    },
+    date: {
+        type: Date,
+        required: true,
+        default: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+      },
+      
+      
+      location:{
+        type:String,
+        // required:true,
+      },
+      status:{
+        type:String,
+         required:true,
+
+    },
+    updates: [
+        {
+          status: {
+            type: String,
+            required: true,
+          },
+          date: {
+            type: Date,
+            required: true,
+            default: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+          },
+          
+          
+          location: {
+            type: String,
+          },
+          // Other updated fields...
+        }
+      ]
+});
 
 const CustomerModel = new mongoose.model("Customer" ,CustomerSchema )
 module.exports = CustomerModel;

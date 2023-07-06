@@ -7,7 +7,7 @@ const {createOrder,getOrder,History } = require('../controllers/orderController.
 //create route for orderhistory
 router.post('/createorder', createOrder);
 router.get('/history' ,History);
-router.get('/:orderID', getOrder);
+// router.get('/:orderID', getOrder);
 
 
 
